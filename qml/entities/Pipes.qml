@@ -9,6 +9,9 @@ EntityBase {
   property int pipeGateway: 90
   property int variationDistance: 70
   property double delay: 0
+  property int visibility: 200
+
+  visible: pipeElement.x - player.x <= visibility
 
   MultiResolutionImage {
     id: spriteUpperPipe
@@ -16,6 +19,20 @@ EntityBase {
     mirrorY: true
   }
 
+  MultiResolutionImage {
+    id: spriteBottomPipe
+    y: height+pipeGateway
+    source: "../../assets/img/pipe_green.png"
+  }
+
+
+  Item{
+  clip:true
+  width:spriteUpperPipe.width
+  height:pipeGateway
+  y: spriteUpperPipe.height
+
+  }
   BoxCollider {
     id: collider
     width: spriteUpperPipe.width
@@ -40,12 +57,6 @@ EntityBase {
 
       audioManager.play(audioManager.idPOINT)
     }
-  }
-
-  MultiResolutionImage {
-    id: spriteBottomPipe
-    y: height+pipeGateway
-    source: "../../assets/img/pipe_green.png"
   }
 
   BoxCollider {
