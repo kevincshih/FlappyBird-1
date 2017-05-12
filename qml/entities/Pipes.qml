@@ -9,9 +9,8 @@ EntityBase {
   property int pipeGateway: 90
   property int variationDistance: 70
   property double delay: 0
-  property int visibility: 200
 
-  visible: pipeElement.x - player.x <= visibility
+  opacity: calculateOpacity()
 
   MultiResolutionImage {
     id: spriteUpperPipe
@@ -81,6 +80,19 @@ EntityBase {
     onLimitReached: {
       reset()
     }
+  }
+
+  function calculateOpacity() {
+      var d = scene.width - player.x;
+      var n = pipeElement.x - player.x;
+      var nd = n/d
+      if (nd < 0){
+        return 1
+      }
+      if (nd > 1){
+        return 0
+      }
+      return 1-nd
   }
 
   function generateRandomValueBetween(minimum, maximum) {
