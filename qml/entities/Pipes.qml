@@ -83,16 +83,7 @@ EntityBase {
   }
 
   function calculateOpacity() {
-      var d = scene.width - player.x;
-      var n = pipeElement.x - player.x;
-      var nd = n/d
-      if (nd < 0){
-        return 1
-      }
-      if (nd > 1){
-        return 0
-      }
-      return 1-nd
+      return player.calculateOpacity(pipeElement.x)
   }
 
   function generateRandomValueBetween(minimum, maximum) {

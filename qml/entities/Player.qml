@@ -77,4 +77,18 @@ EntityBase {
     wabbleY.to = player.y-dir
     wabbleY.start()
   }
+
+  function calculateOpacity(x) {
+      var d = scene.width - player.x;
+      var n = x - player.x;
+      var nd = n/d
+      if (nd < 0){
+        return 1
+      }
+      if (nd > 1){
+        return 0
+      }
+      return 1-nd
+  }
+
 }
