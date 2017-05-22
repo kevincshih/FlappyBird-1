@@ -35,6 +35,16 @@ Item {
     delay: 1.5
   }
 
+  Bugs {
+    id: bugs1
+    delay: 1
+  }
+
+  Fish {
+    id: fish1
+    delay: 2
+  }
+
   Ground {
     id: ground
     anchors.horizontalCenter: parent.horizontalCenter
@@ -44,17 +54,23 @@ Item {
   function reset() {
     pipes1.reset()
     pipes2.reset()
+    bugs1.reset()
+    fish1.reset()
     ground.reset()
   }
 
   function stop() {
     pipes1.stop()
     pipes2.stop()
+    bugs1.stop()
+    fish1.stop()
     ground.stop()
   }
 
   function start() {
     pipes1.start()
     pipes2.start()
+    bugs1.start()
+    fish1.start()
   }
 }
