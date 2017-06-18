@@ -14,7 +14,7 @@ EntityBase {
   MultiResolutionImage {
     id: spriteBug
     y: scene.height/2
-    source: "../../assets/img/bird.png"
+    source: "../../assets/img/bug.png"
   }
 
   Item{
